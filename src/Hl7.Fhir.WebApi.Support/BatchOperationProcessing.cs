@@ -11,7 +11,7 @@ using Hl7.Fhir.Utility;
 namespace Hl7.Fhir.WebApi
 {
     public class BatchOperationProcessing<TSP>
-        where TSP: class
+        where TSP: IServiceProvider
     {
         public Func<ModelBaseInputs<TSP>, string, IFhirResourceServiceR4<TSP>> GetResourceService { get; set; }
         public int DefaultPageSize { get; set; } = 40;

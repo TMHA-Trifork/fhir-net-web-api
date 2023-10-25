@@ -4,6 +4,7 @@ using Hl7.Fhir.Specification.Source;
 using Hl7.Fhir.Support;
 using Hl7.Fhir.Utility;
 using Hl7.Fhir.WebApi;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
@@ -12,7 +13,7 @@ using System.Threading.Tasks;
 namespace Hl7.Fhir.DemoFileSystemFhirServer
 {
     public class CanonicalResourceService<TSP> : DirectoryResourceService<TSP>
-        where TSP : class
+        where TSP : IServiceProvider
     {
         public CanonicalResourceService(ModelBaseInputs<TSP> requestDetails, string resourceName, string directory, IResourceResolver source, IAsyncResourceResolver asyncSource)
             : base(requestDetails, resourceName, directory, source, asyncSource)

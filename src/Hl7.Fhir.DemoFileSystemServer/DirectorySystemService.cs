@@ -14,7 +14,7 @@ namespace Hl7.Fhir.DemoFileSystemFhirServer
     /// This is an implementation of the FHIR Service that sources all its files in the file system
     /// </summary>
     public class DirectorySystemService<TSP> : Hl7.Fhir.WebApi.IFhirSystemServiceR4<TSP>
-        where TSP : class
+        where TSP : IServiceProvider
     {
         public DirectorySystemService()
         {

@@ -12,6 +12,14 @@
     <Compile Include="$(MSBuildThisFileDirectory)CanonicalResourceService.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)DirectoryResourceService.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)DirectorySystemService.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)IResourceRepository.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ObservationResourceRepository.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)PatientResourceRepository.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)SearchIndexer.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)WrapperResourceService.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)WrapperSystemService.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="$(MSBuildThisFileDirectory)Directory.Build.props" />
   </ItemGroup>
 </Project>

@@ -11,6 +11,7 @@ using Hl7.Fhir.DemoFileSystemFhirServer;
 using System;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Hosting;
+using Hl7.Fhir.DemoFileSystemServer;
 
 namespace Hl7.DemoFileSystemFhirServer
 {
@@ -32,7 +33,7 @@ namespace Hl7.DemoFileSystemFhirServer
             options.Level = System.IO.Compression.CompressionLevel.Fastest);
             services.AddResponseCompression(options =>
             {
-                options.EnableForHttps = true;
+                //options.EnableForHttps = true;
                 options.MimeTypes = ResponseCompressionDefaults.MimeTypes.Concat(new[]
                             {
                                "application/fhir+xml",
@@ -84,18 +85,24 @@ namespace Hl7.DemoFileSystemFhirServer
                 builder.WithExposedHeaders(new[] { "Content-Location", "Location", "ETag" });
             }));
 
-            DirectorySystemService<System.IServiceProvider>.Directory = settings.ServerBaseDirectory;
-            if (!System.IO.Directory.Exists(DirectorySystemService<System.IServiceProvider>.Directory))
-                System.IO.Directory.CreateDirectory(DirectorySystemService<System.IServiceProvider>.Directory);
+            //TMHA
+            //DirectorySystemService<System.IServiceProvider>.Directory = settings.ServerBaseDirectory;
+            //if (!System.IO.Directory.Exists(DirectorySystemService<System.IServiceProvider>.Directory))
+            //    System.IO.Directory.CreateDirectory(DirectorySystemService<System.IServiceProvider>.Directory);
 
             var reverseProxyAddresses = new System.Collections.Generic.Dictionary<string, System.Uri>();
             // reverseProxyAddresses.Add("https://demo.org", new System.Uri("https://demo.org/testme"));
             // reverseProxyAddresses.Add("https://demo2.org", new System.Uri("https://demo.org/testme"));
 
             // services.AddSingleton<IFhirSystemServiceR4<IServiceProvider>>(systemService);
+            // TMHA
+            //services.AddSingleton<IFhirSystemServiceR4<IServiceProvider>>((s) => {
+            //    var systemService = new DirectorySystemService<System.IServiceProvider>();
+            //    systemService.InitializeIndexes();
+            //    return systemService;
+            //});
             services.AddSingleton<IFhirSystemServiceR4<IServiceProvider>>((s) => {
-                var systemService = new DirectorySystemService<System.IServiceProvider>();
-                systemService.InitializeIndexes();
+                var systemService = new WrapperSystemService<System.IServiceProvider>();
                 return systemService;
             });
 

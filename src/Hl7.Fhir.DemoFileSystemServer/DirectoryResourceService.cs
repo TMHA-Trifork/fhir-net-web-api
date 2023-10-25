@@ -16,7 +16,7 @@ using Hl7.Fhir.Specification.Source;
 namespace Hl7.Fhir.DemoFileSystemFhirServer
 {
     public class DirectoryResourceService<TSP> : Hl7.Fhir.WebApi.IFhirResourceServiceR4<TSP>
-        where TSP : class
+        where TSP : IServiceProvider
     {
         public ModelBaseInputs<TSP> RequestDetails { get; private set; }
 

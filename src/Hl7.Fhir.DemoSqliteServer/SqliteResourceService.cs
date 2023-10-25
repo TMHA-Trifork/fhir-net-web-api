@@ -14,7 +14,7 @@ using static Hl7.Fhir.DemoSqliteFhirServer.DemoSearchIndexer;
 namespace Hl7.Fhir.DemoSqliteFhirServer
 {
     public class SqliteResourceService<TSP> : Hl7.Fhir.WebApi.IFhirResourceServiceR4<TSP>
-        where TSP : class
+        where TSP : IServiceProvider
     {
         public ModelBaseInputs<TSP> RequestDetails { get; set; }
 

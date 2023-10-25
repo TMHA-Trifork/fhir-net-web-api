@@ -19,7 +19,7 @@ namespace Hl7.Fhir.DemoSqliteFhirServer
     /// This is an implementation of the FHIR Service that sources all its files in the file system
     /// </summary>
     public class SqliteSystemService<TSP> : Hl7.Fhir.WebApi.IFhirSystemServiceR4<TSP>
-        where TSP : class
+        where TSP : IServiceProvider
     {
         public SqliteSystemService()
         {

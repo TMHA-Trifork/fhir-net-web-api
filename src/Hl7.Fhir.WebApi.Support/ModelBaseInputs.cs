@@ -16,6 +16,7 @@ using System.Threading;
 namespace Hl7.Fhir.WebApi
 {
     public class SystemModelBaseInputs<TSP> : ModelBaseInputs<TSP>
+        where TSP : IServiceProvider
     {
         /// <summary>
         /// Constructor to create the Model inputs and set all the properties
@@ -33,6 +34,7 @@ namespace Hl7.Fhir.WebApi
     }
 
     public class ModelBaseInputs<TSP> : ModelBaseInputs
+        where TSP : IServiceProvider
     {
         /// <summary>
         /// Constructor to create the Model inputs and set all the properties

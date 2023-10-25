@@ -18,6 +18,7 @@ namespace Hl7.Fhir.WebApi
     /// </summary>
     /// <typeparam name="TSP">The Dependency Injector class - IServiceProvider for aspnetcore and IDependencyResolver for webapi</typeparam>
     public interface IFhirResourceServiceR4<TSP>
+        where TSP : IServiceProvider
     {
         /// <summary>
         /// Implementations of this interface process this resource name
